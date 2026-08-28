@@ -1,0 +1,30 @@
+clc;
+close all;
+clear;
+
+%Set the parameters related to the RIXS cross-section
+gam = 0.200;                    %Inverse corehole lifetime in eV.
+sig = 0.009;                    %Lifetime parameter, elastic line
+sig2= 0.016;                    %Lifetime parameter, phonons
+Delta = 0;                      %Detuning energy.
+z = Delta + 1i*gam;             %
+
+Filename = '../Data/A69Kdata.txt';
+A = load(Filename);
+w = A(:,1);
+I = find(w >= -0.3 & w <= 0.5);
+LCP = A(:,2)./max(A(I,2));    %normalize!
+RCP = A(:,3)./max(A(I,3));
+
+%compute the noise
+I = find(w >= -0.35 & w <= -0.2);
+noise_
+
+
+%Save the parameters for use in the fitting routines.
+save Filename Filename
+save gam gam;
+save sig sig;
+save z z;
+
+load parameters_fit_dataA.mat;
