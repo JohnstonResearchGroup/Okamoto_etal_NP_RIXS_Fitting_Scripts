@@ -22,7 +22,7 @@ save gam gam;
 save sig sig;
 save z z;
 
-% P = []
+% P = [5.9447 6.7364 28.6865 1.5246 2.0235 0.0855 0.0538 0.1738 0.1783 0.0440];
 P0 = [4.9659 5.23 36.1594 1.4307 1.1891 0.0850 0.0371 0.1690 0.1725 0.0400];
 
 % Use fmincon to refine the fit and obtain parameter error estimates
@@ -92,3 +92,6 @@ area(w,y_back_LCP,'EdgeColor','none','FaceColor','b','ShowBaseLine','off','FaceA
 %Save the results.
 saveas(gcf,'fit_dataB.png','png')
 saveas(gcf,'fit_dataB.pdf','pdf')
+
+dlmwrite('fitted_curves_dataB_LCP.txt',[w,y_total_LCP,y_el_LCP,y_ph_LCP,y_back_LCP],' ')
+dlmwrite('fitted_curves_dataB_RCP.txt',[w,y_total_RCP,y_el_RCP,y_ph_RCP,y_back_RCP],' ')
